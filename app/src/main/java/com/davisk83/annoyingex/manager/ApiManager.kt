@@ -1,4 +1,4 @@
-package com.davisk83.annoyingex
+package com.davisk83.annoyingex.manager
 
 import android.content.Context
 import com.android.volley.Request
