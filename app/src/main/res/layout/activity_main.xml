@@ -7,6 +7,14 @@
     tools:context=".activity.MainActivity"
     android:padding="@dimen/small_padding_size">
 
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/message"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
     <Button
         android:id="@+id/btnStartNotification"
         android:text="@string/start_notification"

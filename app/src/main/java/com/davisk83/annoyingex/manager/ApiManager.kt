@@ -23,9 +23,7 @@ class ApiManager(context: Context) {
 
                 onMessagesReady(allMessages)
             },
-            {
-                // Display Non-trivial error message
-            }
+            {}
         )
 
         queue.add(request)

@@ -2,4 +2,5 @@
     <string name="app_name">AnnoyingEx</string>
     <string name="start_notification">Here we go again...</string>
     <string name="stop_notification">Block</string>
+    <string name="message">message</string>
 </resources>
