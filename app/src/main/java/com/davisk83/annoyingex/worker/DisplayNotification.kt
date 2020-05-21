@@ -1,5 +1,6 @@
 package com.davisk83.annoyingex.worker
 
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -45,14 +46,28 @@ class DisplayNotification(private val context: Context, workParams: WorkerParame
         }
         val pendingNotificationIntent = PendingIntent.getActivity(context, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
-        val notification = NotificationCompat.Builder(context, MESSAGE_CHANNEL)
-            .setSmallIcon(R.drawable.ic_chat_blue_24dp)
-            .setContentTitle("Regina George")
-            .setContentText(messages[randomMessageIndex])
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(pendingNotificationIntent)
-            .setAutoCancel(true)
-            .build()
+        val notification: Notification
+        if (messages.isEmpty()) {
+            notification = NotificationCompat.Builder(context, MESSAGE_CHANNEL)
+                .setSmallIcon(R.drawable.ic_chat_blue_24dp)
+                .setContentTitle("Regina George")
+                .setContentText("unable to retrieve message")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingNotificationIntent)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .setAutoCancel(true)
+                .build()
+        } else {
+            notification = NotificationCompat.Builder(context, MESSAGE_CHANNEL)
+                .setSmallIcon(R.drawable.ic_chat_blue_24dp)
+                .setContentTitle("Regina George")
+                .setContentText(messages[randomMessageIndex])
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingNotificationIntent)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .setAutoCancel(true)
+                .build()
+        }
 
         notificationManagerCompat.notify(Random.nextInt(), notification)
     }
